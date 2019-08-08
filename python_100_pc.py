@@ -391,15 +391,30 @@ L = [1, 2, 3, 4, 5]
 print(L)
 
 
+import os
+print(os.getpid())
+pid = os.fork()
 
+# Build new process with fork()
 
+import os, time
 
+source = 10
+try:
+    pid = os.fork()
+    if pid == 0:
+        print('this is a child process')
+        source = source - 1
+        time.sleep(3)
+    else:
+        print('This is a parent process')
+    
+    print(source)
+except OSError:
+    pass
 
-
-
-
-
-
+# 034
+    
 
 
 
