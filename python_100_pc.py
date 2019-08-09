@@ -415,6 +415,110 @@ except OSError:
 
 # 034
     
+def hello_world():
+    print('Hello World !')
+
+def three_hellos():
+    for i in range(3):
+        hello_world()
+
+if __name__ == '__main__':
+    three_hellos()
+
+# 035
+
+class bcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKGREEN = '\033]92m'
+    WARNING = '\033]93m'
+    FAIL = '\033[91m'
+    ENDC = '033[0m'
+    BOLD = '033[1m'
+    UNDERLINE = '\033[4m'
+    
+print('\033[1;33;44m 警告的文字 \033[0m')
+print(bcolors.WARNING + '警告的文字' + bcolors.ENDC)
+
+# 036
+
+lower = int(input('Input the lower :'))
+upper = int(input('Input the upper :'))
+L = list()
+
+for i in range(lower, upper+1):
+    for j in range(2, i):
+        if ((i % j) == 0):
+            break
+    else:
+        L.append(i)
+
+def list_duplicate(List):
+    return list(dict.fromkeys(List))
+
+print(list_duplicate(L))
+
+# 037
+
+if __name__ == '__main__':
+    N = 10
+    print('Input 10 numbers :')
+    ls = list()
+    for i in range(N):
+        ls.append(int(input('Input 10 numbers :')))
+    print(ls)
+    print('After sorting...')
+    ls.sort()
+    print(ls)
+
+# 038
+    
+if __name__ == '__main__':
+    a = []
+    sum = 0
+    for i in range(3):
+        a.append([])
+        for j in range(3):
+            a[i].append(int(input('Input the numbers :\n')))
+    for i in range(3):
+        sum += a[i][i]
+    print(sum)
+
+# 039_Figure1
+    
+if __name__ == '__main__':
+    a = [1,4,6,9,13,16,19,28,40,100,0]
+    print('Original list...')
+    number = int(input('Please input a number :'))
+    a.append(number)
+    a.sort()
+    print(a)
+    
+# 039_Figure2
+
+if __name__ == '__main__':
+    a = [1,4,6,9,13,16,19,28,40,100]
+    print('Original List...')
+    print(a)
+    number = int(input('Input a number : '))
+
+    for i in range(10):
+        if a[i] > number:
+            a.insert(i, number)
+    
+    a = list(dict.fromkeys(a))
+    print(a)
+
+# 040
+    
+if __name__ == '__main__':
+    a = [9, 6, 5, 4, 1]    
+    a.sort()
+    print(a)
+
+
+
+
 
 
 
