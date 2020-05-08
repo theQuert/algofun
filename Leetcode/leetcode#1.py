@@ -20,10 +20,9 @@ return [0, 1].
 '''
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        seen = {}
-        for k, v in enumerate(nums):
-            remaining = target - v
-            if remaining in seen:
-                return [seen[remaining], k]
-            seen[v] = k
-        return []
+        numMap = {}
+        for i in range(len(nums)):
+        	if numMap.__contains__(target - nums[i]):
+        		return [numMap.get(target - nums[i]), i]
+        	else:
+        		numMap[nums[i]] = i # Store current index to its value in numMap
