@@ -1,0 +1,17 @@
+docker pull debian:latest
+docker ps -a
+docker run -it debian /bin/bash
+docker run -it --name test --hostname h_name debian bash
+docker rm -v $(docker ps -aqf status=exited)
+docker logs test
+docker diff test
+
+
+docker inspect test | grep IPAddress
+# build images
+docker build -t test/cowsay-dockerfile .
+# run images
+docker run -it --name t_name --hostname h_name test/cowsay-dockerfile bash
+
+
+docker info
