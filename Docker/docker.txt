@@ -10,6 +10,7 @@ docker diff test
 docker inspect test | grep IPAddress
 # build images
 docker build -t test/cowsay-dockerfile .
+docker commit cowsay test/cowsay
 # run images
 docker run -it --name t_name --hostname h_name test/cowsay-dockerfile bash
 
