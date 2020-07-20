@@ -1,5 +1,6 @@
 ## Assert - Assertion 斷言
-- 程式執行到某時間, 斷定必然狀況的狀態, 斷言該時間點時, 某變數必定是某值或某種特性
+- 程式執行到某時間, 斷定必然狀況的狀態, 斷言該時間點時, 某變數必定是某值或某種特性     
+斷言執行前後不可以改變任何code, compile 不會包含 asssert
 ```
 	assert <test>, <message>
 ```
@@ -30,4 +31,17 @@
 
 	a = Acount('E122', 'Quert')
 	a.deposit(-1)
+```
+
+```
+	class Stack:
+		def __init__(self):
+			self.idx = 0
+			self.data = []
+
+		def push(self, c):
+			length = len(self.data)
+			self.data.append(c)
+			assert (length - 1) == len(self.data)
+			return ele
 ```
