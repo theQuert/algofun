@@ -1,36 +1,30 @@
+#
+# @lc app=leetcode.cn id=15 lang=python3
+#
+# [15] 三数之和
+#
+
+# @lc code=start
+
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
-        length = len(nums)
-        res = []
-        if (not nums or length < 3):
-            return []
-        # Sorting
+        n = len(nums)
         nums.sort()
-        res = []
-
-        for i in range(length):
-            # Since the list has been sorted before, if nums[i]>0, there is no possible for adding other 2 element == 0.
-            if(nums[i] > 0):
-                return res
-            # Processing with duplicates.
-            if(i > 0 and nums[i] == nums[i-1]):
+        ans = []
+        
+        for main in range(n):
+            if main > 0 and nums[main] == nums[main - 1]:
                 continue
-            # Create L, R
-            L = i + 1
-            R = length - 1
-            while(L < R):
-                if(nums[i] + nums[L] + nums[R] == 0):
-                    res.append([nums[i], nums[L], nums[R]])
-                    # Remove duplicates
-                    while(L < R and nums[L]==nums[L+1]):
-                        L = L + 1
-                    while(L < R and nums[R]==nums[R-1]):
-                        R = R - 1
-                    # Move L, R to find the next possible ans
-                    L = L + 1
-                    R = R - 1
-                elif(nums[i] + nums[L] + nums[R] > 0):
-                    R = R - 1
-                else:
-                    L = L + 1
-        return res
+            third = n - 1
+            target = -nums[main]
+            for second in range(main + 1, n):
+                if second > main + 1 and nums[second] == nums[second - 1]:
+                    continue
+                while second < third and nums[second] + nums[third] > target:
+                    third -= 1
+                if second == third:
+                    break
+                if nums[second] + nums[third] == target:
+                    ans.append([nums[main], nums[second], nums[third]])
+        
+        return ans
