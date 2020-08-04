@@ -19,7 +19,7 @@ int main()
     }
     
     int b;
-    for(int i = 0; i < n; i++)
+    for(int i = k; i < n; i++)
     {
         cin >> b;
         if(b != a)
